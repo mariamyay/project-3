@@ -65,22 +65,22 @@ setMethod(
 # If the employee's name is not "John", apply more encryption on top of the encrypted message. This function returns a string.
 
 
-boss <- new("Person",
-            name="Boss",
-            age=30)
-john <- new("Employee",
-            name="John",
-            age=25,
-            boss=boss,
-            salary=1000)
-john@salary <- raise(john, percent=10)
-john
-ani <- new("Employee",
-           name= "Ani",
-           age=19,
-           boss=boss,
-           salary=1500)
-print(secret(boss, "Hello"))
-print(secret(john, "Jgnnq"))
-print(secret(ani, "Jgnnq"))
+# boss <- new("Person",
+#             name="Boss",
+#             age=30)
+# john <- new("Employee",
+#             name="John",
+#             age=25,
+#             boss=boss,
+#             salary=1000)
+# john@salary <- raise(john, percent=10)
+# john
+# ani <- new("Employee",
+#            name= "Ani",
+#            age=19,
+#            boss=boss,
+#            salary=1500)
+# print(secret(boss, "Hello"))
+# print(secret(john, "Jgnnq"))
+# print(secret(ani, "Jgnnq"))
 
