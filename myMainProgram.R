@@ -48,12 +48,68 @@ suzan <- new("Employee",
            age=19,
            boss=boss,
            salary=150)
-decrsms2 <- secret(suzan, sms)
-print(decrsms2)
+trydecr <- secret(suzan, sms)
+print(trydecr)
 ### Part 4: Optional #### 
 # Write your own test cases as you would like and use more of the methods you defined in the classes. 
 # You can try changing the shift of an existing message using one of the class methods 
 # Or you can try Decrypting the message of suzan. 
+sms2 <- secret(boss, "Many of life’s failures are people who did not realize how close they were to success when they gave up.- Thomas A. Edison")
+print(sms2)
+sms3 <- secret(boss, sms2)
+print(sms3)
+sms3_decr <- secret(john, sms3)
+print(sms3_decr)
+
+test_case1 <- AnytextMessage("The shift of this text needs to be changed.", 6L)
+shift1 <- test_case1$get_encr_msg()
+print(shift1)
+print(test_case1$get_shift())
+test_case1$change_shift(2L)
+shift2 <- test_case1$get_encr_msg()
+print(shift2)
+print(test_case1$get_shift())
+
+setGeneric(
+  "secretdecrypter",
+  function(object, message) {
+    standardGeneric("secretdecrypter")
+  }
+)
+
+setMethod(
+  "secretdecrypter","Person",
+  function(object, message) {
+    m <- CeasarsDecoder(message)
+    secretshift <- m$decrypt_message()[2]
+    return (secretshift)
+  }
+)
+test_case2 <- secret(boss, "Hello dear employees.")
+print(test_case2)
+suzanencr <- secret(suzan, test_case2)
+print(suzanencr)
+print(secretdecrypter(suzan, suzanencr))
+setGeneric(
+  "getdecrshift",
+  function(object, message) {
+    standardGeneric("getdecrshift")
+  }
+)
+
+setMethod(
+  "getdecrshift","Person",
+  function(object, message) {
+    m <- CeasarsDecoder(message)
+    sh <- as.integer(m$decrypt_message()[1])
+    return (26-sh)
+  }
+)
+test_case3 <- secret(boss, "Find the shift of this message.")
+print(test_case3)
+suzanencr2 <- secret(suzan, test_case3)
+print(suzanencr2)
+print(getdecrshift(suzan, suzanencr2))
 
 ### Good Luck! ### 
 ### THE END ### 
