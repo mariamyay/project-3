@@ -123,7 +123,7 @@ class AnytextMessage(Message):
     def get_encr_msg(self):
         return self.enc_msg_txt
     def change_shift(self,newshift):
-        self.shift=newshift 
+        self.__init__(self.msg_txt,newshift)
         pass
         
 
