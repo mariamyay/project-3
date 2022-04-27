@@ -102,7 +102,7 @@ setMethod(
   function(object, message) {
     m <- CeasarsDecoder(message)
     sh <- as.integer(m$decrypt_message()[1])
-    return (26-sh)
+    return (paste("The encryption is", 26-sh))
   }
 )
 test_case3 <- secret(boss, "Find the shift of this message.")
