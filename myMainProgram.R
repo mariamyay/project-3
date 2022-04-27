@@ -63,12 +63,12 @@ print(sms3_decr)
 
 test_case1 <- AnytextMessage("The shift of this text needs to be changed.", 6L)
 shift1 <- test_case1$get_encr_msg()
-print(shift1)
-print(test_case1$get_shift())
+print(paste("The current encrypted message is:", shift1))
+print(paste("The current shift is", test_case1$get_shift()))
 test_case1$change_shift(2L)
 shift2 <- test_case1$get_encr_msg()
-print(shift2)
-print(test_case1$get_shift())
+print(paste("Now, the message has become:", shift2))
+print(paste("The new shift is", test_case1$get_shift()))
 
 setGeneric(
   "secretdecrypter",
